@@ -1,6 +1,6 @@
 # Сладкий рай — Кондитерская
 
-Веб-приложение для управления каталогом тортов и заказами кондитерской «Сладкий рай».
+Веб-приложение тортиков кондитерской «Сладкий рай».
 
 ## Стек
 
@@ -20,25 +20,42 @@
 ## Запуск
 
 ```bash
-cd project
-pip install -r requirements.txt
-
-# Создать БД PostgreSQL
-createdb cake_shop
-
-# Применить миграции и импортировать данные
-python manage.py migrate
-python manage.py import_data
-
-python manage.py runserver
+python -m venv venv         
+source venv/Scripts/activate         
+python -m pip install --upgrade pip   
+ 
+pip install Django==5.2  
+ 
+ 
+pip freeze > requirements.txt                        
+pip install -r requirements.txt   
+ 
+ 
+django-admin startproject <имя проекта> 
+python manage.py startapp <имя приложения>   
+ 
+ 
+python manage.py runserver 
+ 
+python manage.py migrate                                                 
+python manage.py makemigrations   
+ 
+python manage.py createsuperuser
 ```
 
 Приложение будет доступно на `http://127.0.0.1:8000`
 
-## Тестовые аккаунты
+## Аккаунты
 
-| Роль | Email | Пароль |
-|------|-------|--------|
-| Администратор | `kondratieva@cake-shop.ru` | `AdCk76#` |
-| Менеджер | `kremov@cake-shop.ru` | `Mn7@gP23` |
-| Клиент | `saharova.client@mail.ru` | `Cli3nt#9` |
+| Роль сотрудника          | ФИО                                 | Логин                          | Пароль     |
+|--------------------------|-------------------------------------|--------------------------------|------------|
+| Администратор            | Кондратьева Алиса Михайловна        | kondratieva@cake-shop.ru       | AdCk76#    |
+| Администратор            | Волошин Игорь Сергеевич             | voloshin@cake-shop.ru          | XyZ$89p    |
+| Администратор            | Сладкоежкина Виктория Павловна      | sladkoezhkina@cake-shop.ru     | T0rt!k45   |
+| Менеджер                 | Кремов Артем Дмитриевич             | kremov@cake-shop.ru            | Mn7@gP23   |
+| Менеджер                 | Бисквитов Петр Владимирович         | biskvitov@cake-shop.ru         | Rt5#fH67   |
+| Менеджер                 | Ягодная Елена Игоревна              | yagodnaya@cake-shop.ru         | Ber3ry$1   |
+| Авторизированный клиент  | Сахарова Анна Викторовна            | saharova.client@mail.ru        | Cli3nt#9   |
+| Авторизированный клиент  | Вафельный Максим Олегович           | waffle.client@gmail.com        | WafFl3$5   |
+| Авторизированный клиент  | Шоколадов Кирилл Александрович      | chocolate.client@yandex.ru     | Ch0c0L8*   |
+| Авторизированный клиент  | Фруктовская Ольга Сергеевна         | fruit.client@outlook.com       | FrU1t%22   |
